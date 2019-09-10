@@ -22,7 +22,6 @@ class AddFishForm extends Component{
         e.currentTarget.reset();
     }
     render(){
-        console.log('add fish form ', this.props)
         return (
             <form className="fish-edit" onSubmit={this.createFish}>
                 <input ref={this.nameRef} placeholder="name" name="name" type="text"/>
