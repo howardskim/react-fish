@@ -5,17 +5,24 @@ class Order extends Component {
         let { fishes, order } = this.props;
         let fish = fishes[key];
         let count = order[key];
+        const isAvailable = fish && fish.status === 'available';
+        if(!isAvailable){
+            return (
+                <li>
+                    Sorry {fish ? fish.name : 'fish'} is no longer available
+                </li>
+            )
+        }
         return (
-            <li>
-            {count} lbs {fish.name}  {' '}
-            {formatPrice(count * fish.price)}
+            <li key={key}>
+            {count} lbs {fish ? fish.name : ''}  {''}
+            {formatPrice(count * fish ? fish.price : '')}
             </li>
         )
     }
     render() {
         let{fishes, order} = this.props;
         const orderIds = Object.keys(order);
-        console.log('orderIds ', orderIds);
         const total = orderIds.reduce((prevTotal, key)=>{
             let fish = fishes[key];
             let count = order[key];
@@ -28,7 +35,7 @@ class Order extends Component {
         return (
             <div className="order-wrap">
                 <h2>Order</h2>
-                <ul>
+                <ul className="order">
                     {orderIds.map(this.renderOrder)}
                 </ul>
                 <div className="total">

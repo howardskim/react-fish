@@ -5,9 +5,6 @@ class StorePicker extends Component {
     myInput = React.createRef();
     goToStore = (e) => {
         e.preventDefault();
-        console.log('this.props ', this.props)
-        console.log(getFunName())
-        console.log(this.myInput.current.value)
         let value = this.myInput.current.value;
         let {history} = this.props;
         history.push(`/store/${value}`)
