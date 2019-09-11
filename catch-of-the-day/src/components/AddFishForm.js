@@ -10,6 +10,9 @@ class AddFishForm extends Component{
 
     createFish = (e) => {
         e.preventDefault();
+        if (!this.nameRef.current.value && !this.priceRef.current.value && !this.descRef.current.value && !this.imageRef.current.value){
+            return;
+        }
         let newFish = {
             name: this.nameRef.current.value,
             price: parseFloat(this.priceRef.current.value),

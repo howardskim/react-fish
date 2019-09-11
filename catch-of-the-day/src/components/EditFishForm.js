@@ -16,8 +16,11 @@ class EditFishForm extends Component{
         console.log(updatedFish)
         this.props.updateFish(this.props.fishKey, updatedFish)
     }
-    handleSave = () => {
-        this.props.updateFish(this.props.fishKey, this.state.fish)
+    // handleSave = () => {
+    //     this.props.updateFish(this.props.fishKey, this.state.fish)
+    // }
+    handleDelete = () => {
+        this.props.deleteFish(this.props.fishKey);
     }
     render(){
         let{name, price, status, desc, image} = this.props.fish;
@@ -31,7 +34,8 @@ class EditFishForm extends Component{
                 </select>
                 <textarea onChange={this.handleChange} name="desc" type="text" value={desc}></textarea>
                 <input onChange={this.handleChange} type="text" name="image" value={image}/>
-                <button onClick={this.handleSave}>Save</button>
+                {/* <button onClick={this.handleSave}>Save</button> */}
+                <button onClick={this.handleDelete}>Remove Fish</button>
             </div>
         )
     }

@@ -11,7 +11,7 @@ class Inventory extends Component{
                     console.log(key)
                     let fish = this.props.fishes[key];
                     return (
-                        <EditFishForm key={key} fishKey={key} updateFish={this.props.updateFish} fish={fish} />
+                        <EditFishForm key={key} fishKey={key} deleteFish={this.props.deleteFish} updateFish={this.props.updateFish} fish={fish} />
                     )
                 })}
                 <AddFishForm addFish={this.props.addFish}/>
