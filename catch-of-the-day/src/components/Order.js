@@ -8,6 +8,7 @@ class Order extends Component {
         let fish = fishes[key];
         let count = order[key];
         const isAvailable = fish && fish.status === 'available';
+        if (!fish) return null;
         if(!isAvailable){
             return (
                 <li>
@@ -16,12 +17,18 @@ class Order extends Component {
             )
         }
         return (
-            <CSSTransition classNames="order" key={key} timeout={{enter: 250, exist: 250}}>
-
+            <CSSTransition classNames="order" key={key} timeout={{enter: 500, exist: 500}}>
                 <li key={key}>
-                {count} lbs {fish ? fish.name : ''}  {''}
-                {formatPrice(count * fish ? fish.price : '')}
-                <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
+                <span>
+                    <TransitionGroup component="span" className="count">
+                        <CSSTransition classNames="count" key={count} timeout={{enter: 200, exit: 200}}>
+                            <span>{count}</span>
+                        </CSSTransition>
+                    </TransitionGroup>
+                    lbs {fish ? fish.name : ''}  {''}
+                    {formatPrice(count * fish.price)}
+                </span>
+                    <button onClick={() => this.props.removeFromOrder(key)}>&times;</button>
                 </li>
             </CSSTransition>
         )

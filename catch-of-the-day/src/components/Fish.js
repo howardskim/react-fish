@@ -1,7 +1,19 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import {formatPrice} from '../helpers';
 
 class Fish extends Component{
+    //lives on the mama fish component and don't need to make copies for every instance 
+    static propTypes ={
+        details: PropTypes.shape({
+            image: PropTypes.string,
+            name: PropTypes.string,
+            desc: PropTypes.string,
+            status: PropTypes.string,
+            price: PropTypes.number
+        }),
+        addToOrder: PropTypes.func
+    }
     render(){
         let { details, addToOrder, orderKey} = this.props;
         let {desc, image, name, price, status} = details
@@ -18,5 +30,6 @@ class Fish extends Component{
         )
     }
 }
+
 
 export default Fish;

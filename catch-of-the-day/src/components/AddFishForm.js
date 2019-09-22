@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 
 class AddFishForm extends Component{
     
@@ -8,6 +9,10 @@ class AddFishForm extends Component{
     descRef = React.createRef();
     imageRef = React.createRef();
 
+    static propTypes = {
+        addFish: PropTypes.func
+    }
+    
     createFish = (e) => {
         e.preventDefault();
         if (!this.nameRef.current.value && !this.priceRef.current.value && !this.descRef.current.value && !this.imageRef.current.value){

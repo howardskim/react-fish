@@ -78,11 +78,11 @@ class App extends Component{
         })
     }
     render(){
-        console.log(this.state.order);
+        console.log('app props ', this.props)
         return(
             <div className="catch-of-the-day">
                 <div className="menu">
-                    <Header />             
+                    <Header tagline="Fresh Seafood Market"/>             
                     <ul className="fishes">
                         {Object.keys(this.state.fishes).map((key) => {
                             let eachFish = this.state.fishes[key];
@@ -93,7 +93,7 @@ class App extends Component{
                     </ul>       
                 </div>
                 <Order removeFromOrder={this.removeFromOrder} fishes={this.state.fishes} order={this.state.order} addToOrder={this.addToOrder}/>
-                <Inventory deleteFish={this.deleteFish} updateFish={this.updateFish} loadSampleFishes={this.loadSampleFishes} addFish={this.addFish} fishes={this.state.fishes}/>
+                <Inventory storeId={this.props.match.params.storeId} deleteFish={this.deleteFish} updateFish={this.updateFish} loadSampleFishes={this.loadSampleFishes} addFish={this.addFish} fishes={this.state.fishes}/>
             </div>
         )
     }
