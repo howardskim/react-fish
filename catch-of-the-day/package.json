@@ -6,6 +6,9 @@
     "concurrently": "4.1.0",
     "react-scripts": "^2.1.1"
   },
+  "now" : {
+    "alias" : "fish"
+  },
   "dependencies": {
     "autoprefixer-stylus": "0.14.0",
     "firebase": "^5.7.0",
