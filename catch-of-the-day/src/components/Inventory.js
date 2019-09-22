@@ -21,12 +21,10 @@ class Inventory extends Component{
         })
     }
     authHandler = async (authData) => {
-        console.log(authData);
         //1. Look Up the current store in the database
         const store = await base.fetch(this.props.storeId, {
             context: this
         })
-        console.log('store ', store);
         if(!store.owner){
             await base.post(`${this.props.storeId}/owner`, {
                 data: authData.user.uid
@@ -72,7 +70,6 @@ class Inventory extends Component{
                 <h2>Inventory</h2>
                 {logout}
                 {Object.keys(this.props.fishes).map((key) => {
-                    console.log(key)
                     let fish = this.props.fishes[key];
                     return (
                         <EditFishForm key={key} fishKey={key} deleteFish={this.props.deleteFish} updateFish={this.props.updateFish} fish={fish} />

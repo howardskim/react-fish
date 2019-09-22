@@ -64,7 +64,6 @@ class App extends Component{
     updateFish = (key, newFish) => {
         let fishes = {...this.state.fishes};
         fishes[key] = newFish;
-        console.log('fishes ', fishes)
         this.setState({
             fishes
         })
@@ -78,7 +77,6 @@ class App extends Component{
         })
     }
     render(){
-        console.log('app props ', this.props)
         return(
             <div className="catch-of-the-day">
                 <div className="menu">

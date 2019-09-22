@@ -13,7 +13,6 @@ class EditFishForm extends Component{
             ...this.props.fish,
             [e.target.name] : typed
         }
-        console.log(updatedFish)
         this.props.updateFish(this.props.fishKey, updatedFish)
     }
     // handleSave = () => {
